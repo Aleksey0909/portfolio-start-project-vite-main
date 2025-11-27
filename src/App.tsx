@@ -1,19 +1,25 @@
 import './App.css'
-import styled from "styled-components";
+import {Header} from "./layout/header/Header.tsx";
+import {Main} from "./layout/sections/main/Main.tsx";
+import {Projects} from "./layout/sections/projects/Projects.tsx";
+import {Skills} from "./layout/sections/skills/Skills.tsx";
+import {Experience} from "./layout/sections/experience/Experience.tsx";
+import {Footer} from "./layout/footer/Footer.tsx";
+
+
 
 function App() {
     return (
         <div className="App">
-            <Title>Welcome to IT-INCUBATOR</Title>
-            <h1>Gogi</h1>
+            <Header/>
+            <Main/>
+            <Projects/>
+            <Skills/>
+            <Experience/>
+            <Footer/>
         </div>
     )
 }
 
 export default App
 
-const Title = styled.h1`
-    font-size: 1.5em;
-    text-align: center;
-    color: #e91e63;
-`;
