@@ -9,8 +9,8 @@ import {theme} from "../../styles/Theme.tsx";
 export const Footer = () => {
     return (
         <StyledFooter>
-            <Container padding="0 15">
-                <FlexWrapper direction="row" justify="space-between" align="center" wrap="nowrap" height= "5vh">
+            <Container padding="0 15px">
+                <FlexWrapper mobileDirecriom="column" direction="row" justify="space-between" align="center" wrap="nowrap"  gap="10px">
                     <FooterPhone>Call me: 123-456-789</FooterPhone>
                     <FooterMailLink href="xxx@xyz.com">Email:xxx@xyz.com</FooterMailLink>
                     <Link links={socialLinks}/>
@@ -32,9 +32,12 @@ const StyledFooter = styled.footer`
 
 
 const FooterPhone = styled.p`
+    font-weight: 600;
+    font-size: 22px;
     
 `
 
 const FooterMailLink = styled.a`
-
+    font-weight: 600;
+    font-size: 22px;
 `

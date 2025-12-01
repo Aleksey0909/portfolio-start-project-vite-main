@@ -17,5 +17,5 @@ const HeaderTitleStyle = styled.h1`
     font-family: Poppins, sans-serif;
     font-weight: 500;
     line-height: 100%;
-    
+    gap: 5px;
 `

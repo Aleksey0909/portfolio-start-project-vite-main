@@ -2,6 +2,8 @@ import styled from "styled-components";
 import {SectionTitle} from "../../../components/SectionTitle.tsx";
 import {Project} from "./project/Project.tsx";
 import {Container} from "../../../components/Container.tsx";
+import {theme} from "../../../styles/Theme.tsx";
+import { Slide } from "react-awesome-reveal";
 
 
 
@@ -41,10 +43,10 @@ export const Projects = () => {
 
                     <ProjectsWrapper>
                         {
-                            projectsData.map((p) => <Project title={p.title}
+                            projectsData.map((p) =><Slide triggerOnce={false}> <Project title={p.title}
                                                              imageSrc={p.img}
                                                              description={p.description}
-                                                             key={p.id}/>)
+                                                             key={p.id}/></Slide>)
                         }
                     </ProjectsWrapper>
 
@@ -55,12 +57,17 @@ export const Projects = () => {
 
 
 const StyledProjects = styled.section`
+    position: relative;
     display: flex;
     min-height: 100vh;
 
 ${Container} {
     padding: 50px;
+    @media ${theme.media.mobile} {
+        padding: 15px;
+    }
 }
+    
 
 `
 

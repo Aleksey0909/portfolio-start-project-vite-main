@@ -5,12 +5,15 @@ import {Projects} from "./layout/sections/projects/Projects.tsx";
 import {Skills} from "./layout/sections/skills/Skills.tsx";
 import {Experience} from "./layout/sections/experience/Experience.tsx";
 import {Footer} from "./layout/footer/Footer.tsx";
+import {Particle} from "./components/particle/Particle.tsx";
+
 
 
 
 function App() {
     return (
         <div className="App">
+            <Particle/>
             <Header/>
             <Main/>
             <Projects/>

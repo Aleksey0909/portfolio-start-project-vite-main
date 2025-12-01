@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {theme} from "../../../../styles/Theme.tsx";
 
 type TimelineItem = {
     date: string;
@@ -10,15 +11,17 @@ type TimelineProps = {
     items: TimelineItem[];
 }
 
-export const Timeline = ({ items }: TimelineProps) => {
+export const Timeline = ({items}: TimelineProps) => {
     return (
         <TimelineWrapper>
-            <TimelineLine />
-            {items.map((item,index ) => (
+            <TimelineLine/>
+            {items.map((item, index) => (
                 <TimelinePoint key={index}>
-                    <TimelineDot />
-                    <TimelineLabel>{item.label}</TimelineLabel>
-                    <TimelineDate>{item.date}</TimelineDate>
+                    <TimelineDot/>
+                    <TimelineContent>
+                        <TimelineDate>{item.date}</TimelineDate>
+                        <TimelineLabel>{item.label}</TimelineLabel>
+                    </TimelineContent>
                 </TimelinePoint>
             ))}
         </TimelineWrapper>
@@ -26,7 +29,16 @@ export const Timeline = ({ items }: TimelineProps) => {
 };
 
 
+const TimelineContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
 
+    @media ${theme.media.tablet} {
+        margin-left: 0; 
+    }
+`;
 
 
 const TimelineWrapper = styled.div`
@@ -37,6 +49,17 @@ const TimelineWrapper = styled.div`
     padding: 0;
     display: flex;
     justify-content: space-between;
+
+    
+    @media ${theme.media.tablet} {
+        flex-direction: column;
+        justify-content: space-between; 
+        height: 80%; 
+        min-height: 400px; 
+        width: 90%;
+        margin: 40px auto;
+        padding-left: 30px;
+    }
 `;
 
 const TimelineLine = styled.div`
@@ -46,6 +69,16 @@ const TimelineLine = styled.div`
     height: 4px;
     background: linear-gradient(270deg, #13adc7 0%, #6978d1 66.67%, #945dd6 100%);
     border-radius: 2px;
+
+    
+    @media ${theme.media.tablet} {
+        width: 4px;                    
+        height: calc(100% - 40px);     
+        left: 20px;                     
+        right: auto;
+        bottom: auto;
+        background: linear-gradient(180deg, #13adc7 0%, #6978d1 66.67%, #945dd6 100%);
+    }
 `;
 
 const TimelinePoint = styled.div`
@@ -54,6 +87,13 @@ const TimelinePoint = styled.div`
     align-items: center;
     position: relative;
     z-index: 2;
+
+    
+    @media ${theme.media.tablet} {
+        flex-direction: row;
+        align-items: flex-start;
+
+    }
 `;
 
 const TimelineDot = styled.div`
@@ -61,14 +101,29 @@ const TimelineDot = styled.div`
     height: 25px;
     background: white;
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    margin-top: -11px; /
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: -11px;
+
+    
+    @media ${theme.media.tablet} {
+        margin-top: 0;
+        margin-right: 20px;
+        position: relative;
+        left: -20px; 
+    }
 `;
 
 const TimelineDate = styled.div`
     font-weight: 600;
     font-size: 18px;
     color: #fff;
+    margin-top: 10px;
+
+    @media ${theme.media.tablet} {
+        text-align: left;
+        position: relative;
+        top: -15px;
+    }
 `;
 
 const TimelineLabel = styled.div`
@@ -77,6 +132,10 @@ const TimelineLabel = styled.div`
     font-size: 14px;
     text-align: center;
     color: #fff;
-`;
+
+    @media ${theme.media.tablet} {
+        text-align: left;
+    }
+`
 
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {theme} from "../styles/Theme.tsx";
 
 
 type FlexWrapperPropsType = {
@@ -8,6 +9,7 @@ type FlexWrapperPropsType = {
     wrap?: string,
     height?: string,
     gap?: string,
+    mobileDirecriom?: string,
 }
 
 
@@ -19,4 +21,8 @@ export const FlexWrapper = styled.div<FlexWrapperPropsType>`
     flex-wrap: ${props => props.wrap || 'nowrap'};
     height: ${props => props.height || 'auto'};
     gap: ${props => props.gap || '0px'};
+    @media ${theme.media.mobile}
+    {
+        flex-direction: ${props => props.mobileDirecriom || props.direction || "row"};
+    }
 `

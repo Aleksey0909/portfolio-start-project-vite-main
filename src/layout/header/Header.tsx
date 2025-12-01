@@ -12,7 +12,7 @@ import {MobileMenu} from "./mobileMenu/MobileMenu.tsx";
 export const Header = () => {
     return (
         <StyledHeader>
-            <Container padding="0 15">
+            <Container padding="0 15px">
                 <HeaderFlexWrapper align="center" justify="space-between" wrap="wrap">
                     <HeaderTitle/>
                     <NavMenu/>

@@ -3,6 +3,7 @@ import {Skill, SkillProps} from "./Skill/Skill.tsx";
 import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
 import styled from "styled-components";
 import { Container } from "../../../components/Container.tsx";
+import {theme} from "../../../styles/Theme.tsx";
 
 type SkillType = SkillProps & {
     id: number,
@@ -64,7 +65,7 @@ export const Skills = () => {
             <FlexWrapper direction='column' height="40vh">
                 {skillsData.map((skill) => (<Skill title={skill.title} value={skill.value} key={skill.id}/>))}
             </FlexWrapper>
-            <SectionTitle align='center' title={"Additional technologies and skills"} size={"44px"}/>
+            <SectionTitle sizeMobile="26px" align='center' title={"Additional technologies and skills"} size={"44px"} />
             <ImagesWrapper>
                 {skillImage.map((image) => (
                     <img
@@ -82,9 +83,17 @@ export const Skills = () => {
 };
 
 const SkillsWrapper = styled.section`
-background-color: peachpuff;
-    
-`
+    position: relative;
+    background-color: peachpuff;
+
+    ${Container} {
+        @media ${theme.media.mobile} {
+            padding: 15px;
+        }
+    }
+`;
+
+
 
 const ImagesWrapper = styled.div`
     gap: 50px;
@@ -94,6 +103,11 @@ const ImagesWrapper = styled.div`
         background: transparent; 
         mix-blend-mode: normal;
         border-radius: 25px;
+        @media ${theme.media.tablet} {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+        }
     }
 `
 

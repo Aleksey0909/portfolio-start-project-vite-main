@@ -51,6 +51,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${theme.colors.secondaryBg};
        
     }
+    
 
 
 `
